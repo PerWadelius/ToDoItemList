@@ -12,7 +12,7 @@ public class Main {
 		UI ui = new UI();
 		
 		
-		
+		System.out.println("Testar en uppdatering med Git");
 		
 		
 		Scanner sc = new Scanner(System.in);
