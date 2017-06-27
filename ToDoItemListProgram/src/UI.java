@@ -1,8 +1,10 @@
+import java.io.*;
 
 public class UI {
 	
 	public void printMenu(){
 		
+		System.out.println("");
 		System.out.println("What do you wanna do?");
 		System.out.println("-----------------------------------------");
 		System.out.println("Menu");
@@ -21,10 +23,25 @@ public class UI {
 	}
 	
 	
-	public void addNewItem(){
+	public ToDoItem addNewItem() throws IOException{
 		
 		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str;
+		System.out.println("Enter the name of the Item.");
+		str = br.readLine();
+		//System.out.println("You want to add " + str + " to the To Do list.");
 		
+		return new ToDoItem(str);
+	}
+	
+	public String readInputFromUser() throws IOException{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str;
+		str = br.readLine();
+		
+		return str;
 	}
 	
 

@@ -38,16 +38,18 @@ public class ToDoItemList {
 	
 	public void removeAllDoneItems(){
 		
+		ToDoItem toDoItem;
 		
-		
-//		for(ToDoItem toDoItem : itemList ){
-//			
-//			if(toDoItem.isDone()){
-//				
-//				itemList.remove(toDoItem);
-//				
-//			}
-//		}
+		for(int i = 0; i < itemList.size();i++){
+		//for(ToDoItem toDoItem : itemList ){
+			
+			toDoItem = itemList.get(i);
+			
+			if(toDoItem.isDone()){
+				
+				itemList.remove(toDoItem);
+			}
+		}
 			
 	}
 	

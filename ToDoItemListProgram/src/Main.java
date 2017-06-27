@@ -1,27 +1,27 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		
 		ToDoItemList itemList = new ToDoItemList();
 		
-		ToDoItem newItem = new ToDoItem("Item D");
 		
 		UI ui = new UI();
 		
-		
-		System.out.println("Testar en uppdatering med Git");
-		
-		
-		Scanner sc = new Scanner(System.in);
+				
 		
 		boolean exitProgram = false;
 		
 		while(!exitProgram){
 			
 			ui.printMenu();
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String str;
+			str = br.readLine();
 			
 //			System.out.println("Add a new item to the To Do list (A)");
 //			System.out.println("Print out the whole To Do list (P)");
@@ -33,21 +33,24 @@ public class Main {
 //			System.out.println("Mark a To Do item as not done (N)");
 //			System.out.println("Exit program (X)");
 			
-			switch (sc.next()){
+			switch (str){
 			
 				case "A": 
-						ui.addNewItem();
-					
+						itemList.addItem(ui.addNewItem());
+						
 						break;
 				case "P": 
 						itemList.printToDoItemList();
 				
 						break;
 				case "D": 
+						System.out.println("Which Item do you want to mark as Done? ");
+						itemList.markItemDone(ui.readInputFromUser());
 				
 						break;
 				case "R": 
-					
+						System.out.println("Which Item do you want to remove from the list? ");
+						itemList.removeItem(ui.readInputFromUser());
 						break;
 				case "I": 
 						itemList.removeAllDoneItems();
@@ -75,36 +78,37 @@ public class Main {
 		}
 		
 		
-		itemList.addItem(newItem);
 		
-		itemList.addItem("Item A");
-		itemList.addItem("Item B");
-		itemList.addItem("Item C");
+//		itemList.addItem(newItem);
+//		
+//		itemList.addItem("Item A");
+//		itemList.addItem("Item B");
+//		itemList.addItem("Item C");
+//		
 		
-		
-		System.out.println("Nu ser att göra listan ut så här: ");
-		itemList.printToDoItemList();
-				
-		System.out.println("Nu tar vi bort ett item från listan");
-		itemList.removeItem("Item B");
-			
-		System.out.println("Då ser listan ut så här: ");
-		itemList.printToDoItemList();
-		
-		System.out.println("Nu markerar vi ett item som done");
-		itemList.markItemDone("Item C");
-		itemList.markItemDone("Item D");
-
-		
-		System.out.println("Då ser listan ut så här: ");
-		itemList.printToDoItemList();
-		
-		System.out.println("Nu tar vi bort all gjorda items");
-		itemList.removeAllDoneItems();
-		
-		System.out.println("Då ser listan ut så här: ");
-		itemList.printToDoItemList();
-		
+//		System.out.println("Nu ser att göra listan ut så här: ");
+//		itemList.printToDoItemList();
+//				
+//		System.out.println("Nu tar vi bort ett item från listan");
+//		itemList.removeItem("Item B");
+//			
+//		System.out.println("Då ser listan ut så här: ");
+//		itemList.printToDoItemList();
+//		
+//		System.out.println("Nu markerar vi ett item som done");
+//		itemList.markItemDone("Item C");
+//		itemList.markItemDone("Item D");
+//
+//		
+//		System.out.println("Då ser listan ut så här: ");
+//		itemList.printToDoItemList();
+//		
+//		System.out.println("Nu tar vi bort all gjorda items");
+//		itemList.removeAllDoneItems();
+//		
+//		System.out.println("Då ser listan ut så här: ");
+//		itemList.printToDoItemList();
+//		
 //		System.out.println("Nu markerar vi ett item som not done");
 //		itemList.markItemNotDone("Item C");
 //		
