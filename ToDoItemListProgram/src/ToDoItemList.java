@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 
@@ -38,18 +39,30 @@ public class ToDoItemList {
 	
 	public void removeAllDoneItems(){
 		
-		ToDoItem toDoItem;
 		
-		for(int i = 0; i < itemList.size();i++){
-		//for(ToDoItem toDoItem : itemList ){
-			
-			toDoItem = itemList.get(i);
-			
-			if(toDoItem.isDone()){
-				
-				itemList.remove(toDoItem);
+		
+		Iterator<ToDoItem> it = itemList.iterator();
+		while (it.hasNext()){
+		
+			if(it.next().isDone()){			
+				it.remove();
 			}
+		
 		}
+		
+		
+//		ToDoItem toDoItem;
+//		
+//		for(int i = 0; i < itemList.size();i++){
+//		for(ToDoItem toDoItem : itemList ){
+//			
+//			toDoItem = itemList.get(i);
+//			
+//			if(toDoItem.isDone()){
+//				
+//				itemList.remove(toDoItem);
+//			}
+//		}
 			
 	}
 	

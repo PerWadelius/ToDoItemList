@@ -53,7 +53,7 @@ public class Main {
 						itemList.removeItem(ui.readInputFromUser());
 						break;
 				case "I": 
-						itemList.removeAllDoneItems();
+						itemList.removeAllDoneItems();  // Tar bara bort en item än så länge
 					
 						break;
 				case "S": 
@@ -67,7 +67,7 @@ public class Main {
 						break;
 				case "X": 
 						exitProgram = true;
-						System.out.println("Program will exit");
+						System.out.println("Program will exit ...");
 						break;
 				default: 
 					
