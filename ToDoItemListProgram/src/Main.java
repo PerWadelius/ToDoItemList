@@ -77,7 +77,8 @@ public class Main {
 					
 						break;
 				case "save": 
-					
+						System.out.println("Which file do you want to save to? ");
+						itemList.writeToFile(ui.readInputFromUser());
 						break;
 				
 				case "load":

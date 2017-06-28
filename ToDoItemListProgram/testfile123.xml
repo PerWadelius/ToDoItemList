@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <itemList>
+        <done>false</done>
+        <itemName>Item1</itemName>
+        <timeStamp>2017-06-28T14:04:05.129+02:00</timeStamp>
+    </itemList>
+    <itemList>
+        <done>false</done>
+        <itemName>Item2</itemName>
+        <timeStamp>2017-06-28T14:04:07.696+02:00</timeStamp>
+    </itemList>
+    <itemList>
+        <done>false</done>
+        <itemName>Item3</itemName>
+        <timeStamp>2017-06-28T14:04:10.903+02:00</timeStamp>
+    </itemList>
+    <itemList>
+        <done>false</done>
+        <itemName>Item4</itemName>
+        <timeStamp>2017-06-28T14:04:13.711+02:00</timeStamp>
+    </itemList>
+    <itemList>
+        <done>false</done>
+        <itemName>Item5</itemName>
+        <timeStamp>2017-06-28T14:04:17.328+02:00</timeStamp>
+    </itemList>
+</root>
