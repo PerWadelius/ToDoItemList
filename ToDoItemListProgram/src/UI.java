@@ -43,5 +43,14 @@ public class UI {
 		return str;
 	}
 	
+	public ToDoItemList loadFromFile(String fileName) throws IOException{
+		
+		
+		System.out.println("Inside the loadFromFile method");
+
+		return XmlIO.loadObject(fileName, ToDoItemList.class);
+		
+	}
+	
 
 }

@@ -2,10 +2,18 @@ import java.util.Date;
 
 public class ToDoItem {
 
+
+
+
 	private String itemName;
 	private boolean done;
 	private Date timeStamp;
 	
+	
+	public ToDoItem(){
+		
+	
+	}
 	
 	public ToDoItem(String itemName) {
 		this.itemName = itemName;
@@ -32,6 +40,23 @@ public class ToDoItem {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
+	
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+
+
+
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+
+
+	public String getItemName() {
+		return itemName;
+	}
+
 
 
 //	public void setItemName(String newName) {

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -5,7 +6,7 @@ import java.util.Iterator;
 
 public class ToDoItemList {
 	
-	ArrayList<ToDoItem> itemList;
+	public ArrayList<ToDoItem> itemList;
 	
 	
 	public ToDoItemList(){
@@ -133,5 +134,17 @@ public class ToDoItemList {
 		throw new ToDoItemNotFoundException();
 	
 	}
+	
+	
+	
+
+	public void writeToFile(String fileName, ToDoItemList todo) throws IOException {
+			XmlIO.saveObject(fileName, todo);
+	
+	}
+	public void writeToFile(String fileName) throws IOException {
+		XmlIO.saveObject(fileName, this);
+
+}
 	
 }

@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -8,9 +9,19 @@ public class Main {
 
 		
 		ToDoItemList itemList = new ToDoItemList();
-		
-		
 		UI ui = new UI();
+		
+		
+		try {
+			System.out.println("Try to load file...");
+			itemList= ui.loadFromFile("ToDoItemList.xml");
+		} catch (FileNotFoundException e){
+			
+			System.out.println("File not found");
+		}
+		
+		System.out.println("File loaded...");
+
 		
 				
 		
@@ -65,6 +76,13 @@ public class Main {
 						}
 					
 						break;
+				case "save": 
+					
+						break;
+				
+				case "load":
+					
+						break;
 				case "E": 
 						System.out.println("Which Item do you want to edit? ");
 						String itemToEdit = ui.readInputFromUser();
@@ -84,6 +102,8 @@ public class Main {
 						break;
 				case "X": 
 						exitProgram = true;
+						//itemList.writeToFile("ToDoItemList.xml", itemList);
+						itemList.writeToFile("ToDoItemList.xml");
 						System.out.println("Program will exit ...");
 						break;
 				default: 
