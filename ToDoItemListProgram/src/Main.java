@@ -53,16 +53,24 @@ public class Main {
 						itemList.removeItem(ui.readInputFromUser());
 						break;
 				case "I": 
-						itemList.removeAllDoneItems();  // Tar bara bort en item än så länge
+						itemList.removeAllDoneItems();  
 					
 						break;
 				case "S": 
+						System.out.println("Which Item do you search for? ");
+						try {
+								System.out.println(itemList.findByName(ui.readInputFromUser()));
+						} catch (ToDoItemNotFoundException e) {
+								System.out.println("Item not found");
+						}
 					
 						break;
 				case "E": 
 					
 						break;
 				case "N": 
+						System.out.println("Which Item do you want to mark as not Done? ");
+						itemList.markItemNotDone(ui.readInputFromUser());
 					
 						break;
 				case "X": 
@@ -77,75 +85,7 @@ public class Main {
 			}	
 		}
 		
-		
-		
-//		itemList.addItem(newItem);
-//		
-//		itemList.addItem("Item A");
-//		itemList.addItem("Item B");
-//		itemList.addItem("Item C");
-//		
-		
-//		System.out.println("Nu ser att göra listan ut så här: ");
-//		itemList.printToDoItemList();
-//				
-//		System.out.println("Nu tar vi bort ett item från listan");
-//		itemList.removeItem("Item B");
-//			
-//		System.out.println("Då ser listan ut så här: ");
-//		itemList.printToDoItemList();
-//		
-//		System.out.println("Nu markerar vi ett item som done");
-//		itemList.markItemDone("Item C");
-//		itemList.markItemDone("Item D");
-//
-//		
-//		System.out.println("Då ser listan ut så här: ");
-//		itemList.printToDoItemList();
-//		
-//		System.out.println("Nu tar vi bort all gjorda items");
-//		itemList.removeAllDoneItems();
-//		
-//		System.out.println("Då ser listan ut så här: ");
-//		itemList.printToDoItemList();
-//		
-//		System.out.println("Nu markerar vi ett item som not done");
-//		itemList.markItemNotDone("Item C");
-//		
-//		System.out.println("Då ser listan ut så här: ");
-//		itemList.printToDoItemList();
-		
-		
-		
-
-//		try {
-//			ToDoItem temp;
-//			temp = itemList.findByName("Item B");
-//			System.out.println("Item found");
-//			System.out.println(temp.toString());
-//			itemList.removeItem(temp.getName());
-//			System.out.println("Item removed");
-//		}
-//		catch (ToDoItemNotFoundException e){
-//			
-//			System.out.println("Exception: Item not found");
-//		}
-//		
-		
-//		try {
-//			ToDoItem temp;
-//			temp = itemList.findByName("Item B");
-//			System.out.println("Item found");
-//			System.out.println(temp.toString());
-//			
-//		}
-//		catch (ToDoItemNotFoundException e){
-//			
-//			System.out.println("Exception: Item not found");
-//		}
-//		
-//		
-	
+			
 	}
 
 }

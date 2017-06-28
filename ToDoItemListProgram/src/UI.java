@@ -30,7 +30,6 @@ public class UI {
 		String str;
 		System.out.println("Enter the name of the Item.");
 		str = br.readLine();
-		//System.out.println("You want to add " + str + " to the To Do list.");
 		
 		return new ToDoItem(str);
 	}

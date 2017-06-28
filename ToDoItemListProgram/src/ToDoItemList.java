@@ -94,6 +94,8 @@ public class ToDoItemList {
 	
 	public void printToDoItemList(){
 		
+		//TODO: If the list is empty, a printout with that info is needed.
+		
 		for(ToDoItem toDoItem : itemList ){
 			
 			System.out.println(toDoItem.toString());
