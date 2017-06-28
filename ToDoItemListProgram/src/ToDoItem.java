@@ -29,9 +29,19 @@ public class ToDoItem {
 
 
 
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+
+//	public void setItemName(String newName) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+
 	@Override
 	public String toString() {
-		return "itemName= " + itemName + ", is done= " + done + ", timeStamp= " + timeStamp;
+		return "itemName= " + itemName + ", is done= " + done + ", Item created on= " + timeStamp;
 	}
 
 
@@ -63,6 +73,9 @@ public class ToDoItem {
 		
 		return this.itemName;
 	}
+
+
+
 	
 	
 	

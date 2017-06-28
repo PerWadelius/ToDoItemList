@@ -66,8 +66,17 @@ public class Main {
 					
 						break;
 				case "E": 
-					
+						System.out.println("Which Item do you want to edit? ");
+						String itemToEdit = ui.readInputFromUser();
+						System.out.println("What is the new name of the Item?");
+						String newName = ui.readInputFromUser();
+						try {
+							itemList.editItem(itemList.findByName(itemToEdit), newName);
+						} catch (ToDoItemNotFoundException e) {
+							System.out.println("Item not found in the To Do list");
+						}
 						break;
+						
 				case "N": 
 						System.out.println("Which Item do you want to mark as not Done? ");
 						itemList.markItemNotDone(ui.readInputFromUser());

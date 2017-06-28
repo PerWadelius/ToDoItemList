@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.TreeMap;
 
 
 
@@ -88,6 +87,19 @@ public class ToDoItemList {
 				
 			}
 		}
+	}
+	
+	public void editItem(ToDoItem item, String newName){
+		
+		for(ToDoItem toDoItem : itemList ){
+			
+			if(toDoItem.equals(item)){
+				
+				toDoItem.setItemName(newName);
+				
+			}
+		}
+		
 	}
 	
 	
