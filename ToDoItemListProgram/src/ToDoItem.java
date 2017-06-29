@@ -1,15 +1,33 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ToDoItem {
 
 
 
+	private static int totalNumberOfItems;
+	private int ID;
+	
+	public int getID() {
+		return ID;
+	}
+
+
 
 	private String itemName;
 	private boolean done;
-	private Date timeStamp;
+	//private Date timeStamp;
+	//private LocalDate timeStamp;
+	private String timeStamp;
+	private String plannedReadyDate;
 	
-	
+	public String getReadyDate() {
+		return plannedReadyDate;
+	}
+
+	public void setReadyDate(String plannedReadyDate) {
+		this.plannedReadyDate = plannedReadyDate;
+	}
+
 	public ToDoItem(){
 		
 	
@@ -18,9 +36,13 @@ public class ToDoItem {
 	public ToDoItem(String itemName) {
 		this.itemName = itemName;
 		this.done = false;
-		this.timeStamp = new Date();
+		this.timeStamp = LocalDate.now().toString();
+		this.plannedReadyDate = LocalDate.parse(timeStamp).plusDays(7).toString();
+		totalNumberOfItems++;
+		this.ID = totalNumberOfItems;
+		//this.timeStamp = new Date();	
+		//this.timeStamp = LocalDate.now();
 		
-//		System.out.println("Creating item with name: " + this.itemName + " isDone: " + this.done + " timeStamp = " + this.timeStamp.toString());
 	}
 	
 
@@ -41,13 +63,13 @@ public class ToDoItem {
 		this.itemName = itemName;
 	}
 	
-	public Date getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
 
 
 
-	public void setTimeStamp(Date timeStamp) {
+	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
@@ -66,7 +88,7 @@ public class ToDoItem {
 
 	@Override
 	public String toString() {
-		return "itemName= " + itemName + ", is done= " + done + ", Item created on= " + timeStamp;
+		return "ID: " + ID + " Item name = " + itemName + "               Done = " + done + "         Created: " + timeStamp + "     Planned ready date: " + plannedReadyDate ;
 	}
 
 

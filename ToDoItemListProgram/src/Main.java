@@ -15,12 +15,13 @@ public class Main {
 		try {
 			System.out.println("Try to load file...");
 			itemList= ui.loadFromFile("ToDoItemList.xml");
+			System.out.println("File loaded...");
+
 		} catch (FileNotFoundException e){
 			
 			System.out.println("File not found");
 		}
 		
-		System.out.println("File loaded...");
 
 		
 				
@@ -34,6 +35,8 @@ public class Main {
 			String str;
 			str = br.readLine();
 			
+			str = str.toLowerCase();
+			
 //			System.out.println("Add a new item to the To Do list (A)");
 //			System.out.println("Print out the whole To Do list (P)");
 //			System.out.println("Mark a To Do item as Done (D)");
@@ -46,28 +49,30 @@ public class Main {
 			
 			switch (str){
 			
-				case "A": 
+				 
+				case "a":
+				case "add":
 						itemList.addItem(ui.addNewItem());
 						
 						break;
-				case "P": 
+				case "p": 
 						itemList.printToDoItemList();
 				
 						break;
-				case "D": 
+				case "d": 
 						System.out.println("Which Item do you want to mark as Done? ");
 						itemList.markItemDone(ui.readInputFromUser());
 				
 						break;
-				case "R": 
+				case "r": 
 						System.out.println("Which Item do you want to remove from the list? ");
 						itemList.removeItem(ui.readInputFromUser());
 						break;
-				case "I": 
+				case "i": 
 						itemList.removeAllDoneItems();  
 					
 						break;
-				case "S": 
+				case "s": 
 						System.out.println("Which Item do you search for? ");
 						try {
 								System.out.println(itemList.findByName(ui.readInputFromUser()));
@@ -81,10 +86,16 @@ public class Main {
 						itemList.writeToFile(ui.readInputFromUser());
 						break;
 				
+				case "clear":
+					
+						itemList.clearList();
+						
+						break;
 				case "load":
 					
 						break;
-				case "E": 
+				case "e":
+				
 						System.out.println("Which Item do you want to edit? ");
 						String itemToEdit = ui.readInputFromUser();
 						System.out.println("What is the new name of the Item?");
@@ -96,17 +107,30 @@ public class Main {
 						}
 						break;
 						
-				case "N": 
+				case "n": 
 						System.out.println("Which Item do you want to mark as not Done? ");
 						itemList.markItemNotDone(ui.readInputFromUser());
 					
 						break;
-				case "X": 
+				case "x": 
 						exitProgram = true;
 						//itemList.writeToFile("ToDoItemList.xml", itemList);
 						itemList.writeToFile("ToDoItemList.xml");
 						System.out.println("Program will exit ...");
 						break;
+						
+				case "ready":
+						System.out.println("Which Item do you want to set ready date on? ");
+						String itemToSetReadyDate = ui.readInputFromUser();
+						System.out.println("What is the ready date for the item? use yyyy-mm-dd format");
+						String readyDate = ui.readInputFromUser();
+						try {
+							itemList.setReadyDate(itemList.findByName(itemToSetReadyDate), readyDate);
+						} catch (ToDoItemNotFoundException e) {
+							System.out.println("Item not found in the To Do list");
+						}
+						break;
+					
 				default: 
 					
 						break;

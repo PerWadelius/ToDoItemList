@@ -43,13 +43,18 @@ public class UI {
 		return str;
 	}
 	
-	public ToDoItemList loadFromFile(String fileName) throws IOException{
+	public ToDoItemList loadFromFile(String fileName) throws FileNotFoundException{
 		
 		
-		System.out.println("Inside the loadFromFile method");
+		//System.out.println("Inside the loadFromFile method");
+		
+		try {
 
-		return XmlIO.loadObject(fileName, ToDoItemList.class);
-		
+			return XmlIO.loadObject(fileName, ToDoItemList.class);
+		} catch (IOException e) {
+			
+			throw new FileNotFoundException();
+		}
 	}
 	
 

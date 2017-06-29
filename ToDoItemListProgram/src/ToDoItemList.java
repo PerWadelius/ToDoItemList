@@ -20,6 +20,11 @@ public class ToDoItemList {
 		
 	}
 	
+	public void clearList(){
+		
+		itemList.clear();
+	}
+	
 	public void addItem(String item){
 		
 		ToDoItem newItem = new ToDoItem(item);
@@ -103,15 +108,41 @@ public class ToDoItemList {
 		
 	}
 	
+	public void setReadyDate(ToDoItem item, String readyDate){
+		
+		for(ToDoItem toDoItem : itemList ){
+			
+			if(toDoItem.equals(item)){
+				
+				toDoItem.setReadyDate(readyDate);
+				
+			}
+		}
+		
+	}
+	
 	
 	
 	public void printToDoItemList(){
 		
-		//TODO: If the list is empty, a printout with that info is needed.
+		
+		if(itemList.size() == 0 ){
+			
+			System.out.println("List is empty");
+		}
 		
 		for(ToDoItem toDoItem : itemList ){
 			
-			System.out.println(toDoItem.toString());
+			//System.out.println(toDoItem.toString());
+			
+			System.out.println("---------------------------------------------------");
+			System.out.println("ID: " + toDoItem.getID());
+			System.out.println("Name: " + toDoItem.getItemName());
+			System.out.println("Created: " + toDoItem.getTimeStamp());
+			System.out.println("Planned ready date: " + toDoItem.getReadyDate());
+			System.out.println("Status: " + (toDoItem.isDone()? "Done" : "Not done" ));
+			System.out.println("---------------------------------------------------");
+
 			
 		}
 		
