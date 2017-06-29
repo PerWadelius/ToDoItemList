@@ -22,7 +22,7 @@ public class Main {
 			System.out.println("File not found");
 		}
 		
-
+		System.out.println(ToDoItem.getTotalNumberOfItems());
 		
 				
 		
@@ -75,7 +75,7 @@ public class Main {
 				case "s": 
 						System.out.println("Which Item do you search for? ");
 						try {
-								System.out.println(itemList.findByName(ui.readInputFromUser()));
+								ui.printToDoItem(itemList.findByName(ui.readInputFromUser()));
 						} catch (ToDoItemNotFoundException e) {
 								System.out.println("Item not found");
 						}

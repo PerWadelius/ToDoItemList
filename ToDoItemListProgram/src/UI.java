@@ -57,5 +57,20 @@ public class UI {
 		}
 	}
 	
+	
+	
+	public void printToDoItem(ToDoItem toDoItem){
+		
+		
+		System.out.println("---------------------------------------------------");
+		System.out.println("ID: " + toDoItem.getID());
+		System.out.println("Name: " + toDoItem.getItemName());
+		System.out.println("Created: " + toDoItem.getTimeStamp());
+		System.out.println("Planned ready date: " + toDoItem.getReadyDate());
+		System.out.println("Status: " + (toDoItem.isDone()? "Done" : "Not done" ));
+		System.out.println("---------------------------------------------------");
+
+	
+	}
 
 }

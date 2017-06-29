@@ -1,10 +1,24 @@
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class ToDoItem {
 
 
 
-	private static int totalNumberOfItems;
+	public static void setTotalNumberOfItems(int totalNumberOfItems) {
+		ToDoItem.totalNumberOfItems = totalNumberOfItems;
+	}
+
+
+
+	public static int totalNumberOfItems;
+	
+	public static int getTotalNumberOfItems() {
+		return totalNumberOfItems;
+	}
+
+
+
 	private int ID;
 	
 	public int getID() {
@@ -30,7 +44,10 @@ public class ToDoItem {
 
 	public ToDoItem(){
 		
-	
+		totalNumberOfItems++;
+		
+		this.ID = totalNumberOfItems;
+
 	}
 	
 	public ToDoItem(String itemName) {
@@ -121,12 +138,6 @@ public class ToDoItem {
 		return this.itemName;
 	}
 
-
-
-	
-	
-	
-	
 	
 	
 	
