@@ -22,7 +22,7 @@ public class Main {
 			System.out.println("File not found");
 		}
 		
-		System.out.println(ToDoItem.getTotalNumberOfItems());
+		//System.out.println(ToDoItem.getTotalNumberOfItems());
 		
 				
 		
@@ -129,6 +129,12 @@ public class Main {
 						} catch (ToDoItemNotFoundException e) {
 							System.out.println("Item not found in the To Do list");
 						}
+						break;
+						
+				case "sort":
+						itemList.sort();
+						
+						
 						break;
 					
 				default: 

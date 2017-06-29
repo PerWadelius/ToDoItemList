@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.*;
+
 
 public class ToDoItem {
 
@@ -48,6 +50,19 @@ public class ToDoItem {
 		
 		this.ID = totalNumberOfItems;
 
+	}
+	
+	public ToDoItem(String itemName, Boolean isTempObject){
+		this.itemName = itemName;
+		this.done = false;
+		this.timeStamp = LocalDate.now().toString();
+		this.plannedReadyDate = LocalDate.parse(timeStamp).plusDays(7).toString();
+		this.ID = totalNumberOfItems;
+		
+		
+		if(isTempObject == false){
+			totalNumberOfItems++;
+		} 
 	}
 	
 	public ToDoItem(String itemName) {
@@ -138,6 +153,16 @@ public class ToDoItem {
 		return this.itemName;
 	}
 
+	
+//	  // Overriding the compareTo method
+//	   public int compareTo(ToDoItem a) {
+//	      return (this.ID).compareTo(a.ID);
+//	   }
+
+	   // Overriding the compare method to sort the age 
+//	   public int compare(ToDoItem a, ToDoItem b) {
+//	      return a.ID - b.ID;
+//	   }
 	
 	
 	

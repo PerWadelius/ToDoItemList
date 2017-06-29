@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 
@@ -35,9 +37,11 @@ public class ToDoItemList {
 	
 	public void removeItem(String item){
 		
-		ToDoItem itemToRemove = new ToDoItem(item);
+		ToDoItem itemToRemove = new ToDoItem(item, true);
 
 		itemList.remove(itemToRemove);
+		
+		
 		
 		
 	}
@@ -177,5 +181,14 @@ public class ToDoItemList {
 		XmlIO.saveObject(fileName, this);
 
 }
+	
+	
+//	 Comparator<ToDoItem> comparator = new Comparator<ToDoItem>(); 
+
+	public void sort() {
+		//itemList.sort(new ToDoItem());
+		//itemList.sort();
+		//Collections.sort(itemList, new ToDoItem() );
+	}
 	
 }
