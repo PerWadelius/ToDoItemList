@@ -3,9 +3,19 @@ import java.time.LocalDate;
 import java.util.*;
 
 
-public class ToDoItem {
+public class ToDoItem implements Comparable<ToDoItem>  {
+	
+	private static int sortingType;
 
 
+
+	public static int getSortingType() {
+		return sortingType;
+	}
+
+	public static void setSortingType(int sortingType) {
+		ToDoItem.sortingType = sortingType;
+	}
 
 	public static void setTotalNumberOfItems(int totalNumberOfItems) {
 		ToDoItem.totalNumberOfItems = totalNumberOfItems;
@@ -154,16 +164,42 @@ public class ToDoItem {
 	}
 
 	
-//	  // Overriding the compareTo method
-//	   public int compareTo(ToDoItem a) {
-//	      return (this.ID).compareTo(a.ID);
-//	   }
+	  // Overriding the compareTo method
+	   public int compareTo(ToDoItem a) {
+		   
+		   if(sortingType == 1){
+			   
+			   return this.itemName.compareTo(a.itemName);
+				  
+			   
+		   } else if(sortingType == 2){
+			   
+			   if(this.ID < a.ID ){
+				   return -1;
+			   } else if (this.ID == a.ID){
+				   return 0;
+			   } else {
+				   return 1;
+			   }
+			   
+		   } else if(sortingType == 3){
+			   
+			   return this.plannedReadyDate.compareTo(a.plannedReadyDate);
+			   
+		   } else {
+			   return this.itemName.compareTo(a.itemName);
 
-	   // Overriding the compare method to sort the age 
+		   }
+		   
+		   
+		   
+	   }
+
+	    //Overriding the compare method to sort the age 
 //	   public int compare(ToDoItem a, ToDoItem b) {
 //	      return a.ID - b.ID;
 //	   }
-	
+//	
 	
 	
 }

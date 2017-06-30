@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 
 
@@ -59,19 +60,7 @@ public class ToDoItemList {
 		
 		}
 		
-		
-//		ToDoItem toDoItem;
-//		
-//		for(int i = 0; i < itemList.size();i++){
-//		for(ToDoItem toDoItem : itemList ){
-//			
-//			toDoItem = itemList.get(i);
-//			
-//			if(toDoItem.isDone()){
-//				
-//				itemList.remove(toDoItem);
-//			}
-//		}
+
 			
 	}
 	
@@ -170,7 +159,22 @@ public class ToDoItemList {
 	
 	}
 	
+	public ToDoItem findByID(int ID) throws ToDoItemNotFoundException {
+		
+		
+		for(ToDoItem toDoItem : itemList ){
+			
+			
+			if(toDoItem.getID() == ID){
+				
+				return toDoItem;
+				
+			}
+		}
+		
+		throw new ToDoItemNotFoundException();
 	
+	}
 	
 
 	public void writeToFile(String fileName, ToDoItemList todo) throws IOException {
@@ -181,14 +185,13 @@ public class ToDoItemList {
 		XmlIO.saveObject(fileName, this);
 
 }
-	
-	
-//	 Comparator<ToDoItem> comparator = new Comparator<ToDoItem>(); 
 
 	public void sort() {
-		//itemList.sort(new ToDoItem());
-		//itemList.sort();
-		//Collections.sort(itemList, new ToDoItem() );
+		
+		Collections.sort(itemList, new MyComparator() );
 	}
+	
+	
+
 	
 }

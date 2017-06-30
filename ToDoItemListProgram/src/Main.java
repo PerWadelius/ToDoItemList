@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
 
@@ -81,6 +82,27 @@ public class Main {
 						}
 					
 						break;
+						
+				case "sid":
+						System.out.println("Which ID do you search for? ");
+						try {
+							
+//							int i = Integer.getInteger(ui.readInputFromUser());
+//							System.out.println("ID to search for is: " + i);
+							
+							Scanner sc = new Scanner(System.in);
+						    int i = sc.nextInt();
+							ui.printToDoItem(itemList.findByID(i));
+						} 
+						catch (ToDoItemNotFoundException e) {
+							System.out.println("Item not found");
+						}
+						catch (NullPointerException e){
+							System.out.println("NullpointerException");
+						}
+				
+					break;
+					
 				case "save": 
 						System.out.println("Which file do you want to save to? ");
 						itemList.writeToFile(ui.readInputFromUser());
@@ -131,10 +153,20 @@ public class Main {
 						}
 						break;
 						
-				case "sort":
+				case "sort name":
+						//ToDoItem.sortingType = 1;
+						MyComparator.setSortingType(1);
 						itemList.sort();
-						
-						
+						break;
+				case "sort ID":
+						//ToDoItem.sortingType = 2;
+						MyComparator.setSortingType(2);
+						itemList.sort();
+						break;
+				case "sort ready date":
+						//ToDoItem.sortingType = 3;
+						MyComparator.setSortingType(3);
+						itemList.sort();
 						break;
 					
 				default: 
