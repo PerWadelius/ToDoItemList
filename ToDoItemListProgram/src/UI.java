@@ -5,20 +5,25 @@ public class UI {
 	public void printMenu(){
 		
 		System.out.println("");
-		System.out.println("What do you wanna do?");
-		System.out.println("-----------------------------------------");
+		System.out.println("------------------------------------------------");
 		System.out.println("Menu");
-		System.out.println("-----------------------------------------");
-		System.out.println("Add a new item to the To Do list (A)");
-		System.out.println("Print out the whole To Do list (P)");
-		System.out.println("Mark a To Do item as Done (D)");
-		System.out.println("Remove a To Do item (R)");
-		System.out.println("Remove all done items (I)");
-		System.out.println("Search for a To Do item (S)");
-		System.out.println("Edit a To Do item (E)");
-		System.out.println("Mark a To Do item as not done (N)");
-		System.out.println("Exit program (X)");
-		System.out.println("-----------------------------------------");
+		System.out.println("------------------------------------------------");
+		System.out.println("(A) - Add a new item to the To Do list");
+		System.out.println("(P) - Print out the whole To Do list");
+		System.out.println("(D) - Mark a To Do item as Done");
+		System.out.println("(R) - Remove a To Do item");
+		System.out.println("(I) - Remove all done items");
+		System.out.println("(S) - Search for a To Do item");
+		System.out.println("(E) - Edit a To Do item");
+		System.out.println("(N) - Mark a To Do item as not done");
+		System.out.println("(clear) - Empty the list");
+		System.out.println("(save) - Save the list to a xml file");
+		System.out.println("(load) - Load the list from a xml file");
+		System.out.println("(sort name) - Sort the list on name");
+		System.out.println("(sort ID) - Sort the list on ID");
+		System.out.println("(sort ready date) - Sort the list on ready date");
+		System.out.println("(X) Exit program");
+		System.out.println("-----------------------------------------------");
 		System.out.println("");
 	}
 	
@@ -43,19 +48,7 @@ public class UI {
 		return str;
 	}
 	
-	public ToDoItemList loadFromFile(String fileName) throws FileNotFoundException{
-		
-		
-		//System.out.println("Inside the loadFromFile method");
-		
-		try {
-
-			return XmlIO.loadObject(fileName, ToDoItemList.class);
-		} catch (IOException e) {
-			
-			throw new FileNotFoundException();
-		}
-	}
+	
 	
 	
 	

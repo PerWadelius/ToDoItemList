@@ -1,6 +1,4 @@
-import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
 
 
 public class ToDoItem implements Comparable<ToDoItem>  {
@@ -41,8 +39,6 @@ public class ToDoItem implements Comparable<ToDoItem>  {
 
 	private String itemName;
 	private boolean done;
-	//private Date timeStamp;
-	//private LocalDate timeStamp;
 	private String timeStamp;
 	private String plannedReadyDate;
 	
@@ -82,8 +78,7 @@ public class ToDoItem implements Comparable<ToDoItem>  {
 		this.plannedReadyDate = LocalDate.parse(timeStamp).plusDays(7).toString();
 		totalNumberOfItems++;
 		this.ID = totalNumberOfItems;
-		//this.timeStamp = new Date();	
-		//this.timeStamp = LocalDate.now();
+		
 		
 	}
 	
@@ -123,10 +118,7 @@ public class ToDoItem implements Comparable<ToDoItem>  {
 
 
 
-//	public void setItemName(String newName) {
-//		// TODO Auto-generated method stub
-//		
-//	}
+
 
 	@Override
 	public String toString() {
@@ -195,11 +187,7 @@ public class ToDoItem implements Comparable<ToDoItem>  {
 		   
 	   }
 
-	    //Overriding the compare method to sort the age 
-//	   public int compare(ToDoItem a, ToDoItem b) {
-//	      return a.ID - b.ID;
-//	   }
-//	
+
 	
 	
 }

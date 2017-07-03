@@ -1,9 +1,8 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 
 
 
@@ -184,7 +183,20 @@ public class ToDoItemList {
 	public void writeToFile(String fileName) throws IOException {
 		XmlIO.saveObject(fileName, this);
 
-}
+	}
+	
+	public ToDoItemList loadFromFile(String fileName) throws FileNotFoundException{
+		
+
+		
+		try {
+
+			return XmlIO.loadObject(fileName, ToDoItemList.class);
+		} catch (IOException e) {
+			
+			throw new FileNotFoundException();
+		}
+	}
 
 	public void sort() {
 		

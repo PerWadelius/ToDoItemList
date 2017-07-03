@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Main {
 
+	private static Scanner sc;
+
 	public static void main(String[] args) throws IOException {
 
 		
@@ -15,15 +17,13 @@ public class Main {
 		
 		try {
 			System.out.println("Try to load file...");
-			itemList= ui.loadFromFile("ToDoItemList.xml");
+			itemList= itemList.loadFromFile("ToDoItemList.xml");
 			System.out.println("File loaded...");
 
 		} catch (FileNotFoundException e){
 			
 			System.out.println("File not found");
 		}
-		
-		//System.out.println(ToDoItem.getTotalNumberOfItems());
 		
 				
 		
@@ -38,16 +38,7 @@ public class Main {
 			
 			str = str.toLowerCase();
 			
-//			System.out.println("Add a new item to the To Do list (A)");
-//			System.out.println("Print out the whole To Do list (P)");
-//			System.out.println("Mark a To Do item as Done (D)");
-//			System.out.println("Remove a To Do item (R)");
-//			System.out.println("Remove all done items (I)");
-//			System.out.println("Search for a To Do item (S)");
-//			System.out.println("Edit a To Do item (E)");
-//			System.out.println("Mark a To Do item as not done (N)");
-//			System.out.println("Exit program (X)");
-			
+
 			switch (str){
 			
 				 
@@ -86,13 +77,10 @@ public class Main {
 				case "sid":
 						System.out.println("Which ID do you search for? ");
 						try {
-							
-//							int i = Integer.getInteger(ui.readInputFromUser());
-//							System.out.println("ID to search for is: " + i);
-							
-							Scanner sc = new Scanner(System.in);
+							sc = new Scanner(System.in);
 						    int i = sc.nextInt();
 							ui.printToDoItem(itemList.findByID(i));
+							
 						} 
 						catch (ToDoItemNotFoundException e) {
 							System.out.println("Item not found");
@@ -109,13 +97,14 @@ public class Main {
 						break;
 				
 				case "clear":
-					
-						itemList.clearList();
-						
+						itemList.clearList();	
 						break;
 				case "load":
-					
+						System.out.println("Which file do you want to load from? ");
+						itemList.clearList();
+						itemList = itemList.loadFromFile(ui.readInputFromUser());
 						break;
+						
 				case "e":
 				
 						System.out.println("Which Item do you want to edit? ");
@@ -136,7 +125,6 @@ public class Main {
 						break;
 				case "x": 
 						exitProgram = true;
-						//itemList.writeToFile("ToDoItemList.xml", itemList);
 						itemList.writeToFile("ToDoItemList.xml");
 						System.out.println("Program will exit ...");
 						break;
@@ -154,17 +142,14 @@ public class Main {
 						break;
 						
 				case "sort name":
-						//ToDoItem.sortingType = 1;
 						MyComparator.setSortingType(1);
 						itemList.sort();
 						break;
 				case "sort ID":
-						//ToDoItem.sortingType = 2;
 						MyComparator.setSortingType(2);
 						itemList.sort();
 						break;
 				case "sort ready date":
-						//ToDoItem.sortingType = 3;
 						MyComparator.setSortingType(3);
 						itemList.sort();
 						break;
